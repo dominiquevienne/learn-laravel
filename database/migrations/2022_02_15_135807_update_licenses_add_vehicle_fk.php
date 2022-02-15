@@ -14,6 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('licenses', function (Blueprint $table) {
+            $table->unsignedBigInteger('vehicle_id')->nullable()->change();
+        });
+        Schema::table('licenses', function (Blueprint $table) {
             $table->foreign('vehicle_id')
                 ->references('id')
                 ->on('vehicles')
@@ -31,6 +34,9 @@ return new class extends Migration
     {
         Schema::table('licenses', function (Blueprint $table) {
             $table->dropForeign('licenses_vehicle_id_foreign');
+        });
+        Schema::table('licenses', function (Blueprint $table) {
+            $table->unsignedBigInteger('vehicle_id')->nullable(false)->change();
         });
     }
 };

@@ -15,7 +15,7 @@ class CreateLicensesTable extends Migration
     {
         Schema::create('licenses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('vehicle_id')->nullable();
+            $table->unsignedBigInteger('vehicle_id');
             $table->string('license_number');
             // Anything you want to describe the license (country, fees, ... )
             $table->timestamps();
